@@ -52,7 +52,7 @@ function PlayGame( {user, updateUser} ) {
             <h1>You are now playing the game</h1>
             <div>
                 <h1>Question #{questionNumber}</h1>
-                    <QuestionCard handleScore={sendToQuestionCard} questionArray={questionArray} />
+                    <QuestionCard handleScore={sendToQuestionCard} questionArray={questionArray} gameOver={setGameOver} />
             </div>
         </div>
     )

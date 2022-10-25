@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function QuestionCard( {handleScore, questionArray} ) {
+function QuestionCard( {handleScore, questionArray, setGameOver} ) {
 
     const [question, setQuestion] = useState([])
     const [answers, setAnswers] = useState([])
@@ -47,9 +47,14 @@ function QuestionCard( {handleScore, questionArray} ) {
 
     function increaseX() {
         setX(x + 1)
+        //Fetch here?
     }
 
     const button = <button onClick={increaseX}>Next Question</button>
+
+    if (x > 10) {
+        setGameOver(true)
+    }
 
     return (
         <div>

@@ -1,9 +1,12 @@
 import React from "react";
 
-function ResultCard() {
+function ResultCard( {user} ) {
+
     return (
         <div>
-            <h3>Result Card</h3>
+            <h3>Game Over!</h3>
+            <p>Your score: {user.score}</p>
+            <button>View Leaderboard</button>
         </div>
     )
 }
