@@ -17,28 +17,7 @@ function QuestionCard( {handleScore, questionArray} ) {
         .then(res => res.json())
         .then(data => setQuestion(data))
         .then(() => {
-            let incorrect_answer1 = question.incorrect_answer1.replaceAll('"', '')
-            incorrect_answer1 = incorrect_answer1.replace('[','') 
-            incorrect_answer1 = incorrect_answer1.replace(']','')
-            incorrect_answer1 = incorrect_answer1.split(',')
-
-            let incorrect_answer2 = question.incorrect_answer2.replaceAll('"', '')
-            incorrect_answer2 = incorrect_answer2.replace('[','') 
-            incorrect_answer2 = incorrect_answer2.replace(']','')
-            incorrect_answer2 = incorrect_answer2.split(',')
-
-            let incorrect_answer3 = question.incorrect_answer3.replaceAll('"', '')
-            incorrect_answer3 = incorrect_answer3.replace('[','') 
-            incorrect_answer3 = incorrect_answer3.replace(']','')
-            incorrect_answer3 = incorrect_answer3.split(',')
-
-            function getMultipleRandom(arr) {
-                const shuffled = [...arr].sort(() => Math.floor(Math.random() * 100));
-                return shuffled
-            }
-
-            let all_answers = [incorrect_answer1, incorrect_answer2, incorrect_answer3, question.correct_answer]
-            all_answers = getMultipleRandom(all_answers)
+            let all_answers = [question.incorrect_answer1, question.incorrect_answer2, question.incorrect_answer3, question.correct_answer]
             setAnswers(all_answers, questionArray)
         })
     }, )
@@ -53,16 +32,16 @@ function QuestionCard( {handleScore, questionArray} ) {
         handleStart()
         if(event.target.value === question.correct_answer) {
             handleScore()
-            setX(x + 1)
+            // setX(x + 1)
         } else {
             handleWrong()
-            setX(x + 1)
+            // setX(x + 1)
         }
     }
     
-    const questionAnswers = answers.map((each) => {
+    const questionAnswers = answers.map((answer) => {
         return (
-            <button onClick={handleClick} value={each}>{each}</button>
+            <button onClick={handleClick} value={answer}>{answer}</button>
         )
     })
 
@@ -70,7 +49,7 @@ function QuestionCard( {handleScore, questionArray} ) {
         setX(x + 1)
     }
 
-    const button = <button onClick={increaseX}>Start</button>
+    const button = <button onClick={increaseX}>Next Question</button>
 
     return (
         <div>

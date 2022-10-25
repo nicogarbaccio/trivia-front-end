@@ -6,7 +6,7 @@ import GameOver from './GameOver';
 function PlayGame( {user, updateUser} ) {
 
     const [gameOver, setGameOver] = useState(false)
-    const [questionTotal, setQuestionTotal] = useState(1)
+    const [questionNumber, setQuestionNumber] = useState(1)
     const [userScore, setUserScore] = useState(0)
 
     function raiseUserScore(name){
@@ -31,14 +31,14 @@ function PlayGame( {user, updateUser} ) {
     const [questionArray, setQuestionArray] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:9292/questions/1`)
+        fetch(`http://localhost:9292/questions/`)
         .then(res => res.json())
         .then(data => setQuestionArray(data))
     }, [])
 
     function sendToQuestionCard() {
         raiseUserScore(user.name)
-        setQuestionTotal(questionTotal + 1)
+        setQuestionNumber(questionNumber + 1)
     }
 
     if (gameOver) {
@@ -51,7 +51,7 @@ function PlayGame( {user, updateUser} ) {
         <div>
             <h1>You are now playing the game</h1>
             <div>
-                <h1>Question #{questionTotal}</h1>
+                <h1>Question #{questionNumber}</h1>
                     <QuestionCard handleScore={sendToQuestionCard} questionArray={questionArray} />
             </div>
         </div>
