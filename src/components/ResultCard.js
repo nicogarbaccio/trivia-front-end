@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom"
 
 function ResultCard( {user} ) {
 
@@ -6,7 +7,7 @@ function ResultCard( {user} ) {
         <div>
             <h3>Game Over!</h3>
             <p>Your score: {user.score}</p>
-            <button>View Leaderboard</button>
+            <NavLink exact to="/Leaderboard"><button>View Leaderboard</button></NavLink>
         </div>
     )
 }
