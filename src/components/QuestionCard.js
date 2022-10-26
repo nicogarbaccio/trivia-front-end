@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Answer from  './Answer';
 
 function QuestionCard( {handleScore, questionArray, setGameOver} ) {
 
@@ -8,6 +7,7 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     const [x, setX] = useState(1)
     const [wrong, setWrong] = useState(false)
     const [correct, setCorrect] = useState(false)
+    const [questionNumber, setQuestionNumber] = useState(1)
 
     useEffect(() => {
         setWrong(false)
@@ -21,11 +21,10 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     }, [x])
 
     function handleClick(event) {
-        increaseX()
         console.log(event)
         if(event === question.correct_answer) {
-            setCorrect((prev) => !prev)
             handleScore()
+            setCorrect((prev) => !prev)
         } else {
             setWrong((prev) => !prev)
         }
@@ -39,27 +38,37 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     })
 
     function increaseX() {
+        setQuestionNumber(questionNumber + 1)
         setX(x + 1)
-        // setX(Math.floor(Math.random() * 50))
+        // setX(Math.floor(Math.random() * questionAnswers.length))
     }
 
     const nextQuestion = <button onClick={increaseX}>Next Question</button>
 
-    if (x > 10) {
+    if (questionNumber > 21) {
         setGameOver(true)
     }
+
+    function endGame() {
+        setGameOver(true)
+    }
+
+    const gameOverButton = <button onClick={endGame}>End game</button>
 
     return (
         <div>
             <div>
+                <h1>Question #{questionNumber}</h1>
                 {question.question}
             </div>
             <div>
                 {questionAnswers}
                 {nextQuestion}
+                {gameOverButton}
             </div>
             <div>
-                <Answer setWrong={wrong} setCorrect={correct} answers={questionAnswers} />
+                {wrong ? <p>Sorry, nope!</p> : null}
+                {correct ? <p>Correct!</p> : null}
             </div>
         </div>
     )

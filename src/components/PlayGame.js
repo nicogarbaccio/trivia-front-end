@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import PlayerCard from './PlayerCard';
 import QuestionCard from './QuestionCard';
 import GameOver from './GameOver';
 
 function PlayGame( {user, updateUser} ) {
 
     const [gameOver, setGameOver] = useState(false)
-    const [questionNumber, setQuestionNumber] = useState(1)
     const [userScore, setUserScore] = useState(0)
 
     function raiseUserScore(name){
-        setUserScore(user.score += 1)
+        setUserScore(user.score + 1)
         updateUser(userScore)
 
         fetch('http://localhost:9292/users')
@@ -38,7 +36,6 @@ function PlayGame( {user, updateUser} ) {
 
     function sendToQuestionCard() {
         raiseUserScore(user.name)
-        setQuestionNumber(questionNumber + 1)
     }
 
     if (gameOver) {
@@ -51,8 +48,8 @@ function PlayGame( {user, updateUser} ) {
         <div>
             <h1>You are now playing the game</h1>
             <div>
-                <h1>Question #{questionNumber}</h1>
-                    <QuestionCard handleScore={sendToQuestionCard} questionArray={questionArray} setGameOver={setGameOver} />
+                {/* <h1>Question #{questionNumber}</h1> */}
+                <QuestionCard handleScore={sendToQuestionCard} questionArray={questionArray} setGameOver={setGameOver} />
             </div>
         </div>
     )
