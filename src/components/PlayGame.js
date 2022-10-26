@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import QuestionCard from './QuestionCard';
 import GameOver from './GameOver';
 
@@ -13,26 +13,16 @@ function PlayGame( {user, updateUser} ) {
 
         fetch('http://localhost:9292/users')
         .then(res=>res.json())
-        .then(data=>{
-            for(let i = data.length; i < data.length; i++){
-                if (data[i].name === name){
-                    fetch(`http://localhost:9292/users/${data[i].user_id}`, {
-                        method: 'PATCH',
-                        headers: {'Content-type': 'application/json'},
-                        body: JSON.stringify( {score: userScore} )
-                    })
-                }
+        .then (data => {
+            if(data.name === name) {
+                fetch(`http://localhost:9292/users/${name}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify( {score: userScore} )
+                })
             }
         })
     }
-
-    const [questionArray, setQuestionArray] = useState([])
-
-    useEffect(() => {
-        fetch(`http://localhost:9292/questions/`)
-        .then(res => res.json())
-        .then(data => setQuestionArray(data))
-    }, [])
 
     function sendToQuestionCard() {
         raiseUserScore(user.name)
@@ -49,7 +39,7 @@ function PlayGame( {user, updateUser} ) {
             <h1>You are now playing the game</h1>
             <div>
                 {/* <h1>Question #{questionNumber}</h1> */}
-                <QuestionCard handleScore={sendToQuestionCard} questionArray={questionArray} setGameOver={setGameOver} />
+                <QuestionCard handleScore={sendToQuestionCard} setGameOver={setGameOver} />
             </div>
         </div>
     )

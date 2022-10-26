@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ResultCard from './ResultCard';
+import GameOver from './GameOver';
 
 function Results(){
     const [users, setUsers] = useState(undefined)
@@ -14,7 +14,7 @@ function Results(){
 
     if (users) {
         for (let i = 0; i < users.length; i++) {
-            usersArray.push(<ResultCard user={users[i]} />)
+            usersArray.push(<GameOver user={users[i]} />)
         }
     }
 

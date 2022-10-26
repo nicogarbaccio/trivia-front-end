@@ -21,7 +21,6 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     }, [x])
 
     function handleClick(event) {
-        console.log(event)
         if(event === question.correct_answer) {
             handleScore()
             setCorrect((prev) => !prev)
@@ -32,8 +31,8 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     
     const questionAnswers = answers.map((answer) => {
         return (
-            <button onClick={() => setTimeout(() => handleClick(answer), 2000)} value={answer}>{answer}</button>
-            // && setCorrect((prev) => !prev) && setWrong((prev) => !prev)
+            // <button onClick={() => setTimeout(() => handleClick(answer), 2000)} value={answer}>{answer}</button>
+            <button onClick={() => handleClick(answer)} value={answer}>{answer}</button>
         )
     })
 

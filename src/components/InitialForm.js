@@ -30,7 +30,7 @@ function InitialForm( {start, save} ) {
                 name="name"
                 placeholder="Enter your name"
                 value= {form.name}
-                onChange={e => setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
             />
             <button type="submit" onClick={handleSubmit}>Start!</button>
         </form>
