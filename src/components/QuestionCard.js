@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Answer from  './Answer';
 
 function QuestionCard( {handleScore, questionArray, setGameOver} ) {
 
     const [question, setQuestion] = useState([])
     const [answers, setAnswers] = useState([])
-    const [start, setStart] = useState(false)
     const [x, setX] = useState(1)
     const [wrong, setWrong] = useState(false)
     const [correct, setCorrect] = useState(false)
-
-    function handleStart() {
-        setStart(true)
-        setX(x + 1)
-    }
 
     useEffect(() => {
         setWrong(false)
@@ -25,32 +20,30 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
         })
     }, [x])
 
-    function handleWrong() {
-        return (
-            <p>Sorry, nope!</p>
-        )
-    }
-
     function handleClick(event) {
-        handleStart()
-        if(event.target.value === question.correct_answer) {
+        increaseX()
+        console.log(event)
+        if(event === question.correct_answer) {
+            setCorrect((prev) => !prev)
             handleScore()
-        }     // setX(x + 1)
-       
+        } else {
+            setWrong((prev) => !prev)
+        }
     }
     
     const questionAnswers = answers.map((answer) => {
         return (
-            <button onClick={() => setTimeout(handleClick, 3000) && console.log((e) => e.target.value) } value={answer}>{answer}</button>
+            <button onClick={() => setTimeout(() => handleClick(answer), 2000)} value={answer}>{answer}</button>
+            // && setCorrect((prev) => !prev) && setWrong((prev) => !prev)
         )
     })
 
     function increaseX() {
         setX(x + 1)
-
+        // setX(Math.floor(Math.random() * 50))
     }
 
-    const button = <button onClick={increaseX}>Next Question</button>
+    const nextQuestion = <button onClick={increaseX}>Next Question</button>
 
     if (x > 10) {
         setGameOver(true)
@@ -63,10 +56,11 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
             </div>
             <div>
                 {questionAnswers}
-                {start ? null : button}
+                {nextQuestion}
             </div>
-            {wrong ? <p>Sorry, nope!</p> : null}
-            {correct ? <p>Correct!</p> : null}
+            <div>
+                <Answer setWrong={wrong} setCorrect={correct} answers={questionAnswers} />
+            </div>
         </div>
     )
 }

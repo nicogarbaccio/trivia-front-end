@@ -7,7 +7,7 @@ function NavBar() {
             <h1>Trivia!</h1>
             <div>
                 <NavLink exact to="/">Play</NavLink>
-                <NavLink exact to="/Leaderboard">Leaderboard</NavLink>
+                <NavLink exact to="/results">Leaderboard</NavLink>
             </div>
         </nav>
     )

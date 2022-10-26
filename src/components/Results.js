@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ResultCard from './ResultCard';
 
-function Leaderboard(){
+function Results(){
     const [users, setUsers] = useState(undefined)
 
     useEffect(()=>{
@@ -26,4 +26,4 @@ function Leaderboard(){
     )
 }
 
-export default Leaderboard;
+export default Results;
