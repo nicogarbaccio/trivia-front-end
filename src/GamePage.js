@@ -26,6 +26,7 @@ function GamePage() {
 
     return (
         <div>
+            <button onClick={handleGameStart}>Click</button>
             {gameStarted ? <PlayGame user={user} updateUser={updateUser} /> : <GameBegin save={savePlayer} start={handleGameStart} />}
         </div>
     )
