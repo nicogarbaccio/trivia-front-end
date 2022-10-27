@@ -4,23 +4,25 @@ import PlayGame from "./components/PlayGame"
 function InitialForm() {
 
     const [name, setName] = useState("")
-    const [score, setScore] = useState(0)
+    const [user, setUser] = useState([])
     const [gameStarted, setGameStarted] = useState(false)
 
     function start() {
         setGameStarted((prev) => !prev);
     }
     
-    const user = {name: name, score: score}
-
     function handleSubmit(e) {
         e.preventDefault()
         fetch( "http://localhost:9292/users", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
+        body: JSON.stringify({
+            name: name,
+            score: 0
+        })
       } )
       .then(res => res.json())
+      .then(data => setUser(data))
       start();
     }
 

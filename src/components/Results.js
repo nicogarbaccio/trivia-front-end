@@ -12,9 +12,15 @@ function Results(){
 
     let usersArray = [];
 
+    // if (users) {
+    //     for (let i = 0; i < users.length; i++) {
+    //         usersArray.push(<GameOver user={users[i]} />)
+    //     }
+    // }
+
     if (users) {
-        for (let i = 0; i < users.length; i++) {
-            usersArray.push(<GameOver user={users[i]} />)
+        for (let user of users) {
+            usersArray.push(user)
         }
     }
 

@@ -11,6 +11,10 @@ function QuestionCard( {user} ) {
     const [questionNumber, setQuestionNumber] = useState(1)
     const [gameOver, setGameOver] = useState(false)
 
+    console.log(user.id)
+    console.log(user.name)
+    console.log(user.score)
+
     useEffect(() => {
         setWrong(false)
         setCorrect(false)
@@ -26,8 +30,16 @@ function QuestionCard( {user} ) {
     const [userName, setUserName] = useState(user.name)
 
     function raiseUserScore(){
-        setUserScore(userScore + 1)
-        console.log(userScore)
+        fetch(`http://localhost:9292/users/${user.id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name: user.name,
+                score: user.score += 1
+            })
+        })
+        .then((r) => r.json())
+        .then((data) => setUserScore(data.score))
     }
 
     function handleClick(event) {
@@ -57,7 +69,6 @@ function QuestionCard( {user} ) {
 
     function endGame() {
         setGameOver(true)
-        //Post results?
         fetch('http://localhost:9292/results', {
             method: "POST",
             headers: {
@@ -71,14 +82,14 @@ function QuestionCard( {user} ) {
         .then((r) => r.json())
     }
 
+    if (questionNumber > 21) {
+        endGame()
+    }
+
     if (gameOver) {
         return (
             <GameOver userScore={userScore} />
         )
-    }
-
-    if (questionNumber > 21) {
-        endGame()
     }
 
     return (
