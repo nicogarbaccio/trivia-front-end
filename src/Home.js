@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QuestionCard from "./components/QuestionCard";
+import PlayGame from "./components/PlayGame"
 
 function InitialForm() {
 
@@ -25,7 +25,7 @@ function InitialForm() {
     }
 
     if (gameStarted === true) {
-        return <QuestionCard user={user} />
+        return <PlayGame user={user} />
     } else {
     return (
         <div>

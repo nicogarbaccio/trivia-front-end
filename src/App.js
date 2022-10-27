@@ -1,8 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar'
-import GamePage from './GamePage';
-import InitialForm from './InitialForm';
+import Home from './Home';
 import Results from './components/Results';
 import './App.css';
 
@@ -12,10 +11,13 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <InitialForm />
+          <Home />
+        </Route>
+        <Route exact path="/home">
+          <Home />
         </Route>
         <Route exact path="/game">
-          <InitialForm />
+          <Home />
         </Route>
         <Route exact path="/results">
           <Results />
