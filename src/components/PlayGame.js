@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import GameOver from './GameOver';
 
+import Button from 'react-bootstrap/Button';
+
 function QuestionCard( {user} ) {
 
     const [question, setQuestion] = useState([])
