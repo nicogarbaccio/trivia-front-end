@@ -2,9 +2,9 @@ import React from 'react'
 
 function ResultCard({name, score}) {
     return (
-        <div>
-            Name: {name}
-            Score: {score}
+        <div className='leaders'>
+            <p>{name}</p>
+            <p>{score}</p>
         </div>
     )
 }

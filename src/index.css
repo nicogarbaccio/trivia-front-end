@@ -117,13 +117,13 @@ input[type="text"] {
   font-size: 20px;
 }
 
-.form button {
+.form button, .gameover button {
   background-color: #028090;
   border: 1px solid #028090;
   font-size: 20px;
 }
 
-.form button:hover {
+.form button:hover, .gameover button:hover {
   background-color: #247BA0;
   border: 1px solid #247BA0;
   font-weight: bold;
@@ -131,6 +131,31 @@ input[type="text"] {
 
 .verdict {
   margin-bottom: 15px;
+}
+
+.titles {
+  display: flex;
+  justify-content: center;
+}
+
+.leaders {
+  display: flex;
+  justify-content: center;
+}
+
+.leaders p {
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.titles p {
+  padding: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .clear {

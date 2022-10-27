@@ -44,7 +44,11 @@ function Results(){
 
     return (
         <div className='leaderboard'>
-            <h1>Leaderboard</h1>
+            <h1>🥇 Leaderboard 🥇</h1>
+            <div className='titles'>
+                <p>Name</p>
+                <p>Score</p>
+            </div>
             {usersArray}
             <div className='clear'>
                 {clearBoardButton}
