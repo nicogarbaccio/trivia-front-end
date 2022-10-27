@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GameOver from './GameOver';
 
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 function QuestionCard( {user} ) {
 
@@ -46,15 +47,17 @@ function QuestionCard( {user} ) {
     function handleClick(event) {
         if(event === question.correct_answer) {
             setCorrect((prev) => !prev)
+            setWrong(false)
             raiseUserScore()
         } else {
             setWrong((prev) => !prev)
+            setCorrect(false)
         }
     }
     
     const questionAnswers = answers.map((answer) => {
         return (
-            <button onClick={() => handleClick(answer)} value={answer}>{answer}</button>
+            <Button onClick={() => handleClick(answer)} value={answer}>{answer}</Button>
         )
     })
 
@@ -64,9 +67,9 @@ function QuestionCard( {user} ) {
         // setX(Math.floor(Math.random() * questionAnswers.length))
     }
 
-    const nextQuestionButton = <button onClick={nextQuestion}>Next Question</button>
+    const nextQuestionButton = <Button onClick={nextQuestion}>Next Question</Button>
 
-    const gameOverButton = <button onClick={endGame}>End game</button>
+    const gameOverButton = <Button onClick={endGame}>End game</Button>
 
     function endGame() {
         setGameOver(true)
@@ -96,17 +99,17 @@ function QuestionCard( {user} ) {
     return (
         <div>
             <div>
-                <h1>Question #{questionNumber}</h1>
-                {question.question}
+                <h4>Question #{questionNumber}:</h4>
+                <h3>{question.question}</h3>
             </div>
-            <div>
+            <div className="answers">
                 {questionAnswers}
                 {nextQuestionButton}
                 {gameOverButton}
             </div>
             <div>
-                {wrong ? <p>Sorry, nope!</p> : null}
-                {correct ? <p>Correct!</p> : null}
+                {wrong ? <h3 class="wrong">Sorry, nope!</h3> : null}
+                {correct ? <h3 class="correct">Ding ding ding! Correct!</h3> : null}
             </div>
         </div>
     )

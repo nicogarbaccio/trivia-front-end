@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom"
 
 function NavBar() {
     return (
-        <nav>
-            <h1>Trivia!</h1>
-            <div>
+        <nav className="header">
+            <h1 className='trivia'>Trivia!</h1>
+            <div className='nav'>
                 <NavLink exact to="/">Play</NavLink>
                 <NavLink exact to="/results">Leaderboard</NavLink>
             </div>

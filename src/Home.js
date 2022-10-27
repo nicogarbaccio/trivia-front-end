@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PlayGame from "./components/PlayGame"
+import Button from 'react-bootstrap/Button';
 
 function InitialForm() {
 
@@ -31,18 +32,22 @@ function InitialForm() {
     } else {
     return (
         <div>
-            <img src="https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/Trivia-Day-.gif" alt="Trivia!"></img>
-            <form>
-                <label htmlFor="name">Enter your name!</label>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter your name"
-                    value= {name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <button type="submit" onClick={handleSubmit}>Start!</button>
-            </form>
+            <div className="intro">
+                <h2>🌟Welcome to Trivia: Cohort Edition!🌟</h2>
+                <h3>Enter your name below and press start. Good luck!</h3>
+            </div>
+            <div>
+                <form>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        value= {name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>Start!</Button>
+                </form>
+            </div>
         </div>
     )
 }
