@@ -6,7 +6,7 @@ function GameOver( {userScore, users} ) {
     return (
         <div className='gameover'>
             <h1>Game Over!</h1>
-            <p>Your score: {userScore}</p>
+            <p className="yourscore">Your score: {userScore}</p>
             <NavLink exact to="/results"><Button>View Leaderboard</Button></NavLink>
         </div>
     )

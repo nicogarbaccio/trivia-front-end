@@ -45,7 +45,7 @@ nav a:hover {
   color: #DDBEA8;
 }
 
-.intro, .game, .leaderboard {
+.intro, .game, .leaderboard, .gameover {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -138,16 +138,13 @@ input[type="text"] {
   justify-content: center;
 }
 
+.yourscore {
+  font-size: 20px;
+}
+
 .leaders {
   display: flex;
   justify-content: center;
-}
-
-.leaders p {
-  padding: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 20px;
 }
 
 .titles p {
@@ -156,6 +153,13 @@ input[type="text"] {
   margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.leaders p {
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
 }
 
 .clear {
