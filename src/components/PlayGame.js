@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import GameOver from './GameOver';
 
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 
 function QuestionCard( {user} ) {
 
@@ -105,9 +104,9 @@ function QuestionCard( {user} ) {
             <div className="answers">
                 {questionAnswers}
             </div>
-            <div>
-                {wrong ? <h3 class="wrong">Sorry, nope!</h3> : null}
-                {correct ? <h3 class="correct">Ding ding ding! Correct!</h3> : null}
+            <div class="verdict">
+                {wrong ? <h3>🚫 Sorry, nope! 🚫</h3> : null}
+                {correct ? <h3>💡 Ding ding ding! Correct! 💡</h3> : null}
             </div>
             <div className="next">
                 {nextQuestionButton}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ResultCard from './ResultCard';
+import Button from 'react-bootstrap/Button';
 
 function Results(){
     const [users, setUsers] = useState(undefined)
@@ -39,13 +40,13 @@ function Results(){
         })
     }
 
-    const clearBoardButton = <button onClick={clearBoard}>Clear Leaderboard</button>
+    const clearBoardButton = <Button onClick={clearBoard}>Clear Leaderboard</Button>
 
     return (
-        <div>
+        <div className='leaderboard'>
             <h1>Leaderboard</h1>
             {usersArray}
-            <div>
+            <div className='clear'>
                 {clearBoardButton}
             </div>
         </div>

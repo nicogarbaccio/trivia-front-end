@@ -36,7 +36,7 @@ function InitialForm() {
                 <h2>🌟Welcome to Trivia: Cohort Edition!🌟</h2>
                 <h3>Enter your name below and press start. Good luck!</h3>
             </div>
-            <div>
+            <div className="form">
                 <form>
                     <input
                         type="text"
@@ -45,7 +45,7 @@ function InitialForm() {
                         value= {name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <Button className="start" variant="primary" type="submit" onClick={handleSubmit}>Start!</Button>
+                    <Button type="submit" onClick={handleSubmit}>Start!</Button>
                 </form>
             </div>
         </div>
