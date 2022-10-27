@@ -45,7 +45,7 @@ function InitialForm() {
                         value= {name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <Button variant="primary" type="submit" onClick={handleSubmit}>Start!</Button>
+                    <Button className="start" variant="primary" type="submit" onClick={handleSubmit}>Start!</Button>
                 </form>
             </div>
         </div>

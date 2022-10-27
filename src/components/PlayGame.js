@@ -98,18 +98,22 @@ function QuestionCard( {user} ) {
 
     return (
         <div>
-            <div>
+            <div className='game'>
                 <h4>Question #{questionNumber}:</h4>
                 <h3>{question.question}</h3>
             </div>
             <div className="answers">
                 {questionAnswers}
-                {nextQuestionButton}
-                {gameOverButton}
             </div>
             <div>
                 {wrong ? <h3 class="wrong">Sorry, nope!</h3> : null}
                 {correct ? <h3 class="correct">Ding ding ding! Correct!</h3> : null}
+            </div>
+            <div className="next">
+                {nextQuestionButton}
+            </div>
+            <div className="end">
+                {gameOverButton}
             </div>
         </div>
     )
