@@ -18,10 +18,21 @@ function Results(){
         }
     }
 
+    function clearBoard() {
+        fetch(`http://localhost:9292/users`, {
+            method: 'DELETE'
+        })
+    }
+
+    const clearBoardButton = <button onClick={clearBoard}>Clear Leaderboard</button>
+
     return (
         <div>
             <h1>Leaderboard</h1>
             {users ? usersArray : undefined}
+            <div>
+                {clearBoardButton}
+            </div>
         </div>
     )
 }
