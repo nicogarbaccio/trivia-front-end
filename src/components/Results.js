@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import GameOver from './GameOver';
+import ResultCard from './ResultCard';
 
 function Results(){
     const [users, setUsers] = useState(undefined)
 
     useEffect(()=>{
         fetch('http://localhost:9292/results')
-        .then(res=>res.json())
-        .then(data=>setUsers(data))
+        .then(res => res.json())
+        .then(data => setUsers(data))
     },[])
 
-    let usersArray = [];
+    console.log(users)
+
+    const usersArray = users?.map((user) => {
+        return (
+            <ResultCard
+                name = {user.name}
+                score = {user.score}
+            />
+        )
+    })
 
     // if (users) {
     //     for (let i = 0; i < users.length; i++) {
@@ -18,14 +27,14 @@ function Results(){
     //     }
     // }
 
-    if (users) {
-        for (let user of users) {
-            usersArray.push(user)
-        }
-    }
+    // if (users) {
+    //     for (let user of users) {
+    //         usersArray.push(user)
+    //     }
+    // }
 
     function clearBoard() {
-        fetch(`http://localhost:9292/users`, {
+        fetch(`http://localhost:9292/results`, {
             method: 'DELETE'
         })
     }
@@ -35,7 +44,7 @@ function Results(){
     return (
         <div>
             <h1>Leaderboard</h1>
-            {users ? usersArray : undefined}
+            {usersArray}
             <div>
                 {clearBoardButton}
             </div>

@@ -27,7 +27,6 @@ function QuestionCard( {user} ) {
     }, [x])
 
     const [userScore, setUserScore] = useState(user.score)
-    const [userName, setUserName] = useState(user.name)
 
     function raiseUserScore(){
         fetch(`http://localhost:9292/users/${user.id}`, {
