@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import GameOver from './GameOver';
 
-function QuestionCard( {handleScore, questionArray, setGameOver} ) {
+function QuestionCard( {user} ) {
 
     const [question, setQuestion] = useState([])
     const [answers, setAnswers] = useState([])
@@ -8,6 +9,7 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     const [wrong, setWrong] = useState(false)
     const [correct, setCorrect] = useState(false)
     const [questionNumber, setQuestionNumber] = useState(1)
+    const [gameOver, setGameOver] = useState(false)
 
     useEffect(() => {
         setWrong(false)
@@ -20,10 +22,18 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
         })
     }, [x])
 
+    const [userScore, setUserScore] = useState(user.score)
+    const [userName, setUserName] = useState(user.name)
+
+    function raiseUserScore(){
+        setUserScore(userScore + 1)
+        console.log(userScore)
+    }
+
     function handleClick(event) {
         if(event === question.correct_answer) {
-            handleScore()
             setCorrect((prev) => !prev)
+            raiseUserScore()
         } else {
             setWrong((prev) => !prev)
         }
@@ -31,28 +41,45 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
     
     const questionAnswers = answers.map((answer) => {
         return (
-            // <button onClick={() => setTimeout(() => handleClick(answer), 2000)} value={answer}>{answer}</button>
             <button onClick={() => handleClick(answer)} value={answer}>{answer}</button>
         )
     })
 
-    function increaseX() {
+    function nextQuestion() {
         setQuestionNumber(questionNumber + 1)
         setX(x + 1)
         // setX(Math.floor(Math.random() * questionAnswers.length))
     }
 
-    const nextQuestion = <button onClick={increaseX}>Next Question</button>
+    const nextQuestionButton = <button onClick={nextQuestion}>Next Question</button>
 
-    if (questionNumber > 21) {
-        setGameOver(true)
-    }
+    const gameOverButton = <button onClick={endGame}>End game</button>
 
     function endGame() {
         setGameOver(true)
+        //Post results?
+        fetch('http://localhost:9292/results', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: user.name,
+                score: userScore
+            })
+        })
+        .then((r) => r.json())
     }
 
-    const gameOverButton = <button onClick={endGame}>End game</button>
+    if (gameOver) {
+        return (
+            <GameOver userScore={userScore} />
+        )
+    }
+
+    if (questionNumber > 21) {
+        endGame()
+    }
 
     return (
         <div>
@@ -62,7 +89,7 @@ function QuestionCard( {handleScore, questionArray, setGameOver} ) {
             </div>
             <div>
                 {questionAnswers}
-                {nextQuestion}
+                {nextQuestionButton}
                 {gameOverButton}
             </div>
             <div>

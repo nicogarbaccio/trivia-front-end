@@ -1,33 +1,11 @@
-import React, { useState } from "react";
-import GameBegin from "./components/GameBegin";
-import PlayGame from './components/PlayGame';
+import React from "react";
+import InitialForm from "./InitialForm";
 
 function GamePage() {
 
-    const [gameStarted, setGameStarted] = useState(false)
-    const [user, setUser] = useState("")
-
-    function handleGameStart() {
-        setGameStarted((prev) => !prev);
-    }
-
-    function updateUser(u) {
-        setUser(u)
-    }
-
-    function savePlayer(input) { 
-        const newUser = {
-            name: input.name,
-            score: input.score
-        }
-
-        updateUser(newUser)
-    }
-
     return (
         <div>
-            <button onClick={handleGameStart}>Click</button>
-            {gameStarted ? <PlayGame user={user} updateUser={updateUser} /> : <GameBegin save={savePlayer} start={handleGameStart} />}
+            <InitialForm />
         </div>
     )
 }

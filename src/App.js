@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar'
 import GamePage from './GamePage';
+import InitialForm from './InitialForm';
 import Results from './components/Results';
 import './App.css';
 
@@ -11,10 +12,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <GamePage />
+          <InitialForm />
         </Route>
         <Route exact path="/game">
-          <GamePage />
+          <InitialForm />
         </Route>
         <Route exact path="/results">
           <Results />

@@ -6,7 +6,7 @@ function GameOver( {userScore} ) {
         <div>
             <h1>Game Over!</h1>
             <p>Your score: {userScore}</p>
-            <NavLink exact to="/Leaderboard"><button>View Leaderboard</button></NavLink>
+            <NavLink exact to="/results"><button>View Leaderboard</button></NavLink>
         </div>
     )
 }
