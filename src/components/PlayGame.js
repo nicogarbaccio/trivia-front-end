@@ -96,7 +96,7 @@ function QuestionCard( {user} ) {
     }
 
     return (
-        <div>
+        <div className= 'game-form'>
             <div className='game'>
                 <h4>Question #{questionNumber}:</h4>
                 <h3>{question.question}</h3>

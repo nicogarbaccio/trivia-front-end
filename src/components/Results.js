@@ -44,7 +44,6 @@ function Results(){
 
     return (
         <div className='leaderboard'>
-            <h1>🥇 Leaderboard 🥇</h1>
             <div className='titles'>
                 <p>Name</p>
                 <p>Score</p>

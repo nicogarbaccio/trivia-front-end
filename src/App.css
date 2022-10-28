@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background-image: url("https://i.pinimg.com/originals/0b/2c/67/0b2c6771d41a9304c948dfed9920393a.jpg"); */
 }
 
 .App-logo {
@@ -14,18 +15,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-image: url("https://i.pinimg.com/originals/0b/2c/67/0b2c6771d41a9304c948dfed9920393a.jpg"); */
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
-  color: #61dafb;
+  background-color: #ED7D3A;
 }
 
 @keyframes App-logo-spin {

@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F3DFC1;
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/031/653/819/original/pixel-jeff-witch.gif?1604239834');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
@@ -15,16 +17,35 @@ code {
 
 .trivia {
   font-family: 'VT323', monospace;
-  font-size: 75px;
-  color: #F3DFC1;
+  font-size: 50px;
+  margin: 0;
+  color: #FB8B24;
 }
 
 img {
   width: 800px;
 }
 
-.header {
-  background-color: #247BA0;
+.top-nav {
+  background-color: rgb(74,32,84);
+}
+
+.game-form {
+  background-color: rgba(0, 0, 0, 0.377);
+  flex-direction: column;
+  display: flex;
+  padding: 55px;
+}
+
+.game {
+  color: #FB8B24;
+  font-family: 'VT323', monospace;
+}
+
+.nav-form, .game-over {
+  background-color: rgba(0, 0, 0, 0.377);
+  color: #ED7D3A;
+  padding: 15px
 }
 
 .nav {
@@ -35,78 +56,77 @@ img {
 
 .nav a {
   margin-left: 20px;
-  margin-bottom: 20px;
-  color: #F3DFC1;
-  font-size: 30px;
+  color: #FB8B24;
+  font-size: 35px;
   text-decoration: none;
   font-family: 'VT323', monospace;
 }
 
 nav a:hover {
-  color: #DDBEA8;
-}
-
-.intro, .game, .leaderboard, .gameover {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  color: #ED7D3A;
 }
 
 .answers {
   display: flex;
   flex-direction: column;
-  padding: 1em 5em;
+  padding: 1em 40em;
 }
 
 .next, .end {
   display: flex;
   flex-direction: column;
-  padding: 0 5em;
+  padding: 0 40em;
 }
 
 .answers button {
-  background-color: #50514F;
-  border: 1px solid #50514F;
+  background-color: #ED7D3A;
   margin-top: 2px;
   font-size: 20px;
+  font-family: 'VT323', monospace;
 }
 
 .answers button:hover {
-  background-color: #247BA0;
-  border: 1px solid #247BA0;
+  background-color: black;
+  border: 1px solid black;
   font-weight: bold;
+  font-family: 'VT323', monospace;
 }
 
 .next button {
-  background-color: #247BA0;
-  border: 1px solid #247BA0;
+  background-color: black;
+  border: 1px solid black;
   font-size: 20px;
+  font-family: 'VT323', monospace;
 }
 
 .next button:hover {
-  background-color: #70C1B3;
-  border: 1px solid #70C1B3;
+  background-color: #ED7D3A;
+  border: 1px solid black;
   font-weight: bold;
+  font-family: 'VT323', monospace;
 }
 
 .end button, .leaderboard button {
-  background-color: #F25F5C;
-  border: 1px solid #F25F5C;
+  background-color: black;
+  border: 1px solid black;
   font-size: 20px;
   margin-top: 2px;
+  font-family: 'VT323', monospace;
 }
 
 .end button:hover, .leaderboard button:hover {
-  background-color: #D72638;
-  border: 1px solid #D72638;
+  background-color: #ED7D3A;
+  border: 1px solid black;
   font-weight: bold;
+  font-family: 'VT323', monospace;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 30%;
   margin: auto;
-  padding: 10px;
+  font-family: 'VT323', monospace;
 }
 
 form input {
@@ -118,29 +138,33 @@ input[type="text"] {
   font-size: 20px;
 }
 
-.form button, .gameover button {
-  background-color: #028090;
-  border: 1px solid #028090;
+.form button, .game-over button {
+  background-color: #FB8B24;
+  border: 1px solid black;
   font-size: 20px;
+  font-family: 'VT323', monospace;
 }
 
-.form button:hover, .gameover button:hover {
-  background-color: #247BA0;
-  border: 1px solid #247BA0;
-  font-weight: bold;
+.form button:hover, .game-over button:hover {
+  background-color: #D35721;
+  border: 1px solid black;
 }
 
 .verdict {
   margin-bottom: 15px;
+  color: white;
+  font-family: 'VT323', monospace;
 }
 
 .titles {
   display: flex;
   justify-content: center;
+  font-size: 30px;
 }
 
-.yourscore {
-  font-size: 20px;
+.your-score {
+  font-size: 30px;
+  font-family: 'VT323', monospace;
 }
 
 .leaders {
@@ -148,15 +172,7 @@ input[type="text"] {
   justify-content: center;
 }
 
-.titles p {
-  padding: 5px;
-  margin-right: 20px;
-  margin-left: 20px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.leaders p {
+.leaders p, .titles p {
   padding: 5px;
   margin-left: 20px;
   margin-right: 20px;
@@ -165,4 +181,16 @@ input[type="text"] {
 
 .clear {
   margin-top: 20px;
+}
+
+.leaderboard {
+  color: #FB8B24;
+  font-family: 'VT323', monospace;
+  background-color: rgba(0, 0, 0, 0.377);
+  padding: 15px;
+}
+
+.intro, .game-over {
+  color: #FB8B24;
+  font-family: 'VT323', monospace;
 }

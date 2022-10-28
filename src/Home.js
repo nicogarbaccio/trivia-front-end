@@ -31,9 +31,8 @@ function InitialForm() {
         return <PlayGame user={user} />
     } else {
     return (
-        <div>
+        <div className="nav-form">
             <div className="intro">
-                <h2>🌟Welcome to Trivia: Cohort Edition!🌟</h2>
                 <h3>Enter your name below and press start. Good luck!</h3>
             </div>
             <div className="form">
