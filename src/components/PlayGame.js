@@ -105,8 +105,8 @@ function QuestionCard( {user} ) {
                 {questionAnswers}
             </div>
             <div class="verdict">
-                {wrong ? <h3>🚫 Sorry, nope! 🚫</h3> : null}
-                {correct ? <h3>💡 Ding ding ding! Correct! 💡</h3> : null}
+                {wrong ? <h3>☠️ Sorry, nope! ☠️</h3> : null}
+                {correct ? <h3>🎃 Ding ding ding! Correct! 🎃</h3> : null}
             </div>
             <div className="next">
                 {nextQuestionButton}

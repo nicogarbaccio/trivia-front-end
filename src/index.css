@@ -69,13 +69,13 @@ nav a:hover {
 .answers {
   display: flex;
   flex-direction: column;
-  padding: 1em 40em;
+  padding: 1em 30em;
 }
 
 .next, .end {
   display: flex;
   flex-direction: column;
-  padding: 0 40em;
+  padding: 0 30em;
 }
 
 .answers button {
