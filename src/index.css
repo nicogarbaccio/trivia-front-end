@@ -191,6 +191,6 @@ input[type="text"] {
 }
 
 .intro, .game-over {
-  color: #FB8B24;
+  color: #FB8B24
   font-family: 'VT323', monospace;
 }
